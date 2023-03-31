@@ -58,10 +58,12 @@ def go_send_messages(message):
 
         elif message.text == "Мероприятия 🍔":
             one_markup = types.InlineKeyboardMarkup(row_width=1)
-            ite1 = types.InlineKeyboardButton(text="Ближайшие мероприятия 🌅", url="https://example.com/video.mp4")
-            ite2 = types.InlineKeyboardButton(text="Проведенные мероприятия 🗿", url="https://example.com/video.mp4")
+            ite1 = types.InlineKeyboardButton(text="Ближайшие мероприятия 🌅", url="https://youtu.be/dQw4w9WgXcQ")
+            ite2 = types.InlineKeyboardButton(text="Проведенные мероприятия 🗿", url="https://youtu.be/dQw4w9WgXcQ")
             one_markup.add(ite1, ite2)
-            bot.send_video_note(message.chat.id, video_note=open('begin.mov', 'rb'), reply_markup=one_markup)
+            bot.send_message(message.chat.id, "{0.first_name}, у нас <u>ежемесячно</u> проводится множество "
+                                              "мероприятий".format(
+                message.from_user), parse_mode="html", reply_markup=one_markup)
 
         elif message.text == 'О нас 🎯':
             markup1 = types.InlineKeyboardMarkup(row_width=1)
